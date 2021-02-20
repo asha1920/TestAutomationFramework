@@ -65,4 +65,38 @@ public class VerifyCountryFilterPage {
 
 	}
 
+	public void clickUpdateButton()throws Exception{
+
+		genUtils.click(searchCountryFilter_UpdateBtn, "Update Button");
+
+	}
+	public boolean verifyCountryValuesFiltered(String country) throws Exception {
+
+		boolean isCountryFilterWorking = true;
+		int columnNumber_Country = genUtils.getColumnNumber(headerTblXpath, "Country");
+
+		System.out.println("headerTblXpath ==> "+headerTblXpath);
+		System.out.println("contentTblXpath ==> "+contentTblXpath);
+		System.out.println("columnNumber_Country : "+columnNumber_Country);
+		
+		int rowCount = genUtils.getRowCount(contentTblXpath);
+		System.out.println("rowCount : "+rowCount);
+		
+		String cellValueCountry = null;
+
+		for(int g=1;g<=rowCount;g++){
+
+			cellValueCountry = driver.findElement(By.xpath(contentTblXpath+"//tr["+g+"]/td["+columnNumber_Country+"]")).getText();
+			//cellValueCountry = genUtils.getTableCellValue(contentTblXpath+"//tr["+g+"]/td["+columnNumber_Country+"]");
+			if(!country.equals(cellValueCountry)) {
+				isCountryFilterWorking = false;
+				System.out.println("Expected Country Value -> "+country);
+				System.out.println("Country value present in table -> "+cellValueCountry);
+				break;
+			}
+
+		}
+
+		return isCountryFilterWorking;
+	}
 }
