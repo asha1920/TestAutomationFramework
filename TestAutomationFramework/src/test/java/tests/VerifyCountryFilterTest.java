@@ -38,7 +38,7 @@ public class VerifyCountryFilterTest extends BaseTest{
 	public void verifyCountryFilterTest(String browser, String country) throws Exception {
 
 		openBrowser(browser);
-		navigateToURL(DriverManager.getDriver(),"https://viewpoint.glasslewis.com/WD/?siteId=DemoClient");	
+		navigateToURL(DriverManager.getDriver());	
 		countryFilterVeri = new VerifyCountryFilterPage(DriverManager.getDriver());
 		
 		countryFilterVeri.checkCountryFilterExist();

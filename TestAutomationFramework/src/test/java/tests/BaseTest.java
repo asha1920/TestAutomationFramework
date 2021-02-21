@@ -30,6 +30,7 @@ import org.testng.SkipException;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import driverManager.ConfigReader;
 import driverManager.DriverManager;
 
 
@@ -52,15 +53,16 @@ public class BaseTest {
 	public void beforeSuite() throws Exception {
 
 		setUpConfigFile();
-		setUpRunModeForTestCases();
-		
+		setUpProperties();	
 	}
 
 	@AfterSuite
 	public void afterSuite() throws Exception {
-
 		
-
+	}
+	
+	private void setUpProperties() {
+		ConfigReader.setTestURL(config.getProperty("url"));
 	}
 
 	
@@ -78,11 +80,6 @@ public class BaseTest {
 	}
 
 	
-	private void setUpRunModeForTestCases() {
-
-	}
-
-
 	@SuppressWarnings("deprecation")
 	public void openBrowser(String browser) throws MalformedURLException {
 
@@ -162,26 +159,10 @@ public class BaseTest {
 		setUpImplicitWait();
 	}
 
-	/*
-	 * private void setUpOtherProperties() {
-	 * 
-	 * if(DriverFactory.getExecutionMode().equalsIgnoreCase("Remote")) {
-	 * DriverFactory.setGridPath(config.getProperty("RemoteURL"));
-	 * DriverFactory.setRemoteMode(config.getProperty("RemoteMode")); }
-	 * 
-	 * DriverFactory.setBrowser(config.getProperty("Browser"));
-	 * DriverFactory.setTestDataLocation(config.getProperty("TestDataLocation"));
-	 * DriverFactory.setWaitTime(Integer.parseInt(config.getProperty("WaitTime")));
-	 * DriverFactory.setTestURL(config.getProperty("url"));
-	 * DriverFactory.setScreenshotPath(config.getProperty("ScreenshotsPath"));
-	 * DriverFactory.setFailedStepsScreenshots(config.getProperty(
-	 * "FailedStepsScreenshots")); }
-	 */
-	
 
-	public void navigateToURL(WebDriver driver, String url) {
+	public void navigateToURL(WebDriver driver) {
 
-		driver.get(url);
+		driver.get(ConfigReader.getTestURL());
 	}
 
 
