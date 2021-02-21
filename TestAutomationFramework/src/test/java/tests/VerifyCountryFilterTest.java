@@ -25,7 +25,7 @@ import pages.VerifyCountryFilterPage;
 import utils.Helper;
 
 
-public class SampleTest extends BaseTest{
+public class VerifyCountryFilterTest extends BaseTest{
 
 	VerifyCountryFilterPage countryFilterVeri = null;
 
