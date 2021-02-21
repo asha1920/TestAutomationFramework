@@ -83,5 +83,121 @@ public class BaseTest {
 	}
 
 
+	@SuppressWarnings("deprecation")
+	public void openBrowser(String browser) throws MalformedURLException {
 
+		DesiredCapabilities capability=null;
+
+			ChromeOptions options=new ChromeOptions();
+
+			switch(browser){
+
+			case "chrome":
+
+				WebDriverManager.chromedriver().setup();
+				
+				//System.setProperty("webdriver.chrome.driver", DriverFactory.getChromeDriverExePath());
+				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+				chromePrefs.put("profile.default_content_settings.popups", 0);
+				chromePrefs.put("download.prompt_for_download", "true");
+
+				chromePrefs.put("safebrowsing.enabled", "true"); 
+				options.setExperimentalOption("prefs", chromePrefs);
+				options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+				options.setExperimentalOption("useAutomationExtension", false);
+				options.addArguments("--incognito");
+				DesiredCapabilities cap = DesiredCapabilities.chrome();
+				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+				cap.setCapability(ChromeOptions.CAPABILITY, options);
+				driver = new ChromeDriver(cap);
+				break;
+
+			case "chrome-headless":
+
+				WebDriverManager.chromedriver().setup();
+			
+				//System.setProperty("webdriver.chrome.driver", DriverFactory.getChromeDriverExePath());
+				HashMap<String, Object> chromePrefsHeadless = new HashMap<String, Object>();
+				chromePrefsHeadless.put("profile.default_content_settings.popups", 0);
+				chromePrefsHeadless.put("download.prompt_for_download", "true");
+
+				chromePrefsHeadless.put("safebrowsing.enabled", "true"); 
+				options.setExperimentalOption("prefs", chromePrefsHeadless);
+				options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+				options.setExperimentalOption("useAutomationExtension", false);
+				options.addArguments("--headless");
+				options.addArguments("--incognito");
+				DesiredCapabilities caps = DesiredCapabilities.chrome();
+				caps.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+				caps.setCapability(ChromeOptions.CAPABILITY, options);
+				driver = new ChromeDriver(caps);
+				break;
+				
+			case "firefox":
+
+				WebDriverManager.firefoxdriver().setup();
+				
+				//System.setProperty("webdriver.gecko.driver", DriverFactory.getGeckoDriverExePath());
+				FirefoxOptions FFoptions= new FirefoxOptions();
+				FFoptions.addArguments("--incognito");
+				DesiredCapabilities capabilities = new DesiredCapabilities();
+				capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+				driver = new FirefoxDriver(capabilities);
+				break;
+
+			default:
+				
+				WebDriverManager.chromedriver().setup();
+				
+			//	System.setProperty("webdriver.chrome.driver", DriverFactory.getChromeDriverExePath());
+				options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+				options.setExperimentalOption("useAutomationExtension", false);
+				//options.addArguments("--incognito");
+				driver=new ChromeDriver(options);
+				break;
+			}
+
+		DriverManager.setWebDriver(driver);
+		maximizeWindow();
+		setUpImplicitWait();
+	}
+
+	/*
+	 * private void setUpOtherProperties() {
+	 * 
+	 * if(DriverFactory.getExecutionMode().equalsIgnoreCase("Remote")) {
+	 * DriverFactory.setGridPath(config.getProperty("RemoteURL"));
+	 * DriverFactory.setRemoteMode(config.getProperty("RemoteMode")); }
+	 * 
+	 * DriverFactory.setBrowser(config.getProperty("Browser"));
+	 * DriverFactory.setTestDataLocation(config.getProperty("TestDataLocation"));
+	 * DriverFactory.setWaitTime(Integer.parseInt(config.getProperty("WaitTime")));
+	 * DriverFactory.setTestURL(config.getProperty("url"));
+	 * DriverFactory.setScreenshotPath(config.getProperty("ScreenshotsPath"));
+	 * DriverFactory.setFailedStepsScreenshots(config.getProperty(
+	 * "FailedStepsScreenshots")); }
+	 */
+	
+
+	public void navigateToURL(WebDriver driver, String url) {
+
+		driver.get(url);
+	}
+
+
+	private void setUpImplicitWait() {
+
+		DriverManager.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	private void maximizeWindow() {
+
+		DriverManager.getDriver().manage().window().maximize();
+	}
+
+	public void explicitWait(WebElement ele)throws Exception{
+
+		wait=new WebDriverWait(DriverManager.getDriver(),10);
+		wait.until(ExpectedConditions.visibilityOf(ele));
+	}
 }
