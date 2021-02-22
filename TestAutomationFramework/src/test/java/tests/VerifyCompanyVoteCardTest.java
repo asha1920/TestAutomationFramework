@@ -23,9 +23,9 @@ public class VerifyCompanyVoteCardTest extends BaseTest{
 	}
 
 	@Test(dataProvider = "data")
-	public void verifyCompanyVoteCardTest(String browser, String country) throws Exception {
+	public void verifyCompanyVoteCardTest(String browser) throws Exception {
 
-		openBrowser(browser); navigateToURL(DriverManager.getDriver(),"https://viewpoint.glasslewis.com/WD/?siteId=DemoClient");
+		openBrowser(browser); navigateToURL(DriverManager.getDriver());
 		companyVoteCardVeri = new VerifyCompanyVoteCardPage(DriverManager.getDriver());
 		companyVoteCardVeri.checkCountryFilterExist();
 		companyVoteCardVeri.clickCountryFilterResetButton();
