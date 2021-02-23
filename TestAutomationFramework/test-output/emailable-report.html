@@ -9,33 +9,22 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Glass Lewis</th></tr>
-<tr><td><a href="#t0">Glass Lewis</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">3</td><td class="num">84,900</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Glass Lewis</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">101,909</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Glass Lewis</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Glass Lewis &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">tests.VerifyCompanyVoteCardTest</td><td><a href="#m0">verifyCompanyVoteCardTest</a></td><td rowspan="3">1613975936648</td><td rowspan="3">35934</td></tr><tr class="failedeven"><td><a href="#m1">verifyCompanyVoteCardTest</a></td></tr><tr class="failedeven"><td><a href="#m2">verifyCompanyVoteCardTest</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Glass Lewis</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Glass Lewis &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">tests.VerifyCompanyVoteCardTest</td><td><a href="#m0">verifyCompanyVoteCardTest</a></td><td rowspan="1">1614003832873</td><td rowspan="1">27246</td></tr><tr><th colspan="4">Glass Lewis &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">tests.VerifyCompanyVoteCardTest</td><td><a href="#m1">verifyCompanyVoteCardTest</a></td><td rowspan="2">1614003795153</td><td rowspan="2">36036</td></tr><tr class="passedeven"><td><a href="#m2">verifyCompanyVoteCardTest</a></td></tr><tr class="passedodd"><td rowspan="3">tests.VerifyCountryFilterTest</td><td><a href="#m3">verifyCountryFilterTest</a></td><td rowspan="3">1614003867918</td><td rowspan="3">27262</td></tr><tr class="passedodd"><td><a href="#m4">verifyCountryFilterTest</a></td></tr><tr class="passedodd"><td><a href="#m5">verifyCountryFilterTest</a></td></tr></tbody>
 </table>
-<h2>Glass Lewis</h2><h3 id="m0">tests.VerifyCompanyVoteCardTest#verifyCompanyVoteCardTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>chrome-headless</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Company Name Activision does not exist
-	at utils.GenericUtils.checkFieldExist(GenericUtils.java:181)
-	at pages.VerifyCompanyVoteCardPage.checkCompanyNameBanner(VerifyCompanyVoteCardPage.java:81)
-	at tests.VerifyCompanyVoteCardTest.verifyCompanyVoteCardTest(VerifyCompanyVoteCardTest.java:38)
+<h2>Glass Lewis</h2><h3 id="m0">tests.VerifyCompanyVoteCardTest#verifyCompanyVoteCardTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>firefox</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Click on Go to next page failed
+	at utils.GenericUtils.actionsClick(GenericUtils.java:82)
+	at pages.VerifyCompanyVoteCardPage.checkCompanyNameActivision(VerifyCompanyVoteCardPage.java:72)
+	at tests.VerifyCompanyVoteCardTest.verifyCompanyVoteCardTest(VerifyCompanyVoteCardTest.java:36)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 ... Removed 13 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">tests.VerifyCompanyVoteCardTest#verifyCompanyVoteCardTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>firefox</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Click on Items per page arrow icon failed
-	at utils.GenericUtils.click(GenericUtils.java:109)
-	at pages.VerifyCompanyVoteCardPage.clickItemsPerPageArrow(VerifyCompanyVoteCardPage.java:59)
-	at tests.VerifyCompanyVoteCardTest.verifyCompanyVoteCardTest(VerifyCompanyVoteCardTest.java:32)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-... Removed 13 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">tests.VerifyCompanyVoteCardTest#verifyCompanyVoteCardTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>chrome</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Click on Items per page arrow icon failed
-	at utils.GenericUtils.click(GenericUtils.java:109)
-	at pages.VerifyCompanyVoteCardPage.clickItemsPerPageArrow(VerifyCompanyVoteCardPage.java:59)
-	at tests.VerifyCompanyVoteCardTest.verifyCompanyVoteCardTest(VerifyCompanyVoteCardTest.java:32)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-... Removed 13 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">tests.VerifyCompanyVoteCardTest#verifyCompanyVoteCardTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>chrome</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">tests.VerifyCompanyVoteCardTest#verifyCompanyVoteCardTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>chrome-headless</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">tests.VerifyCountryFilterTest#verifyCountryFilterTest</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>chrome-headless</td><td>Belgium</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">tests.VerifyCountryFilterTest#verifyCountryFilterTest</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>firefox</td><td>Germany</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">tests.VerifyCountryFilterTest#verifyCountryFilterTest</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>chrome</td><td>Belgium</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
